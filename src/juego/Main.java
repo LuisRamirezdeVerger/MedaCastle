@@ -12,6 +12,7 @@ public class Main {
 		while (juegoMapa.isJuegoEnCurso()) {
 			//Empieza el juego
 			//Hay que meter la intro
+			Mapa.textoIntroTuto();
 			mostrarMenu();
 
 			// Input del jugador
@@ -66,7 +67,7 @@ public class Main {
 
 	private static int opcionUsuario(Scanner scanner) {
 		while (!scanner.hasNextInt()) {
-			System.out.println("Escoge un nº válido. ");
+			System.out.println("Escoge un número válido. ");
 			scanner.next(); //Limpia el bufer del scanner
 		}
 		return scanner.nextInt();
