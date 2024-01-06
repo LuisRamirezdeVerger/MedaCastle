@@ -1,11 +1,12 @@
 package juego;
-
+import habitaciones.*;
 import java.util.List;
 
 public class Habitacion {
     private String nombre;
     private String descripcion;
     private Inventario inventario;
+    //private Tuto textoIntro;
 
     public Habitacion (String nombre, String descripcion, Inventario inventario){
         this.nombre = nombre;
@@ -33,6 +34,9 @@ public class Habitacion {
         this.inventario = nuevoInventario;
     }
 
+    // public Tuto getTextoIntro(){
+    //     return this.textoIntro;
+    // }
 
     //Esto mostrará la info de la hab, podemos usarla para programar y ver resultados
     //Se está usando en el modo extra -> ¿Dónde estoy?

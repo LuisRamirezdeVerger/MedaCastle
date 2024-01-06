@@ -74,4 +74,8 @@ public class Main {
 		return scanner.nextInt();
 	}
 
+	private void buscarPistas(){
+		//Introducimos aquí la logica <3
+	}
+
 }
