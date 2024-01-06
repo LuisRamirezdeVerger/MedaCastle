@@ -1,5 +1,5 @@
 package juego;
-
+import habitaciones.*;
 import java.util.*;
 
 public class Main {
@@ -12,7 +12,8 @@ public class Main {
 		while (juegoMapa.isJuegoEnCurso()) {
 			//Empieza el juego
 			//Hay que meter la intro
-			Mapa.textoIntroTuto();
+			//Mapa.textoIntroTuto();
+			Tuto.textoIntroTuto();
 			mostrarMenu();
 
 			// Input del jugador
