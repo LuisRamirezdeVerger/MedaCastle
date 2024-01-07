@@ -4,6 +4,9 @@ import java.util.*;
 
 public class Main {
 
+	private static Posicion posicionJugador;
+	private static Habitacion[][] habitaciones;
+	private static Inventario inventario;
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Mapa juegoMapa = new Mapa();
@@ -21,14 +24,14 @@ public class Main {
 
 			switch (eleccionJugador) {
 				case 1:
-					//Let's madafacking GO
+					buscarPistas();
 					break;
 				case 2:
-					//Let's madafacking GO
-					
+					Objeto objetoEncontrado = objetoParaRecoger();
+					recogerObjetoEncontrado(objetoEncontrado);
 					break;
 				case 5:
-					
+					//Menú extra
 					System.out.println("---- Menú Extra ----\n");
         			System.out.println("1.- ¿Dónde estoy? ");
         			System.out.println("2.- Ver inventario. ");
@@ -38,7 +41,10 @@ public class Main {
 						case 1:
 							juegoMapa.mostrarInfoHabitacionActual();
 							break;
-					
+						case 2:
+							//Mostrar inventario
+							
+							break;
 						default:
 							//Mensaje de error
 							break;
@@ -74,8 +80,62 @@ public class Main {
 		return scanner.nextInt();
 	}
 
-	private void buscarPistas(){
-		//Introducimos aquí la logica <3
+	//Por terminar
+	private static void buscarPistas(){
+		Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
+
+		String nombreHabitacion = habitacionActual.getNombre();
+		switch (nombreHabitacion) {
+			case "Entrada":
+			//Ejemplo: Tuto.texto...(); no va ahí
+				Tuto.textoIntro();
+				break;
+			case "Sala Secreta":
+			//Lo mismo
+				Tuto.textoIntroFinal();
+				break;
+		
+			default:
+				break;
+		}
+
+		//Con este bloque, hacemos que los objetos de la habitacion pasen a "encontrados" y se puedan lootear
+		Inventario inventarioHabitacion = habitacionActual.getInventario();
+		List<Objeto> objetosHabitacion = inventarioHabitacion.getObjetos();
+
+		for (Objeto objeto : objetosHabitacion) {
+			if (!objeto.getEncontrado()) {
+				objeto.setEncontrado(true);
+				System.out.println("Has encontrado " + objeto.getNombre());
+				inventario.recogerObjeto(objeto);
+			}
+		}
+	}
+
+	private static void recogerObjetoEncontrado(Objeto objeto){
+		if (objeto.getEncontrado()) {
+			inventario.recogerObjeto(objeto);
+			System.out.println("Has recogido " + objeto.getNombre());
+		} else {
+			System.out.println("No hay objetos que recoger. ¿Has buscado bien?");
+		}
+
+	}
+
+	private static Objeto objetoParaRecoger(){
+		Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
+		Inventario inventarioHabitacion = habitacionActual.getInventario();
+		List<Objeto> objetosHabitacion = inventarioHabitacion.getObjetos();
+
+		for (Objeto objeto : objetosHabitacion) {
+			if (!objeto.getEncontrado()) {
+				objeto.setEncontrado(true);
+				inventario.recogerObjeto(objeto);
+				return objeto;
+			}
+		}
+		return null;
+		
 	}
 
 }

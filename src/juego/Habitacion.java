@@ -1,5 +1,4 @@
 package juego;
-import habitaciones.*;
 import java.util.List;
 
 public class Habitacion {

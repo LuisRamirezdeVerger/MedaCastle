@@ -1,22 +1,21 @@
 package juego;
 
-import java.util.*;
+//import java.util.*;
 
 public class Mapa {
+    //Recuerda preguntar si tener varios privates con los mismos nombres es redundante
     private Habitacion[][] habitaciones;
     private Posicion posicionJugador;
     private boolean juegoEnCurso;
-    private Inventario inventario;
-    private boolean objetoEncontrado;
-    private static Scanner sc = new Scanner(System.in);
+    //private Inventario inventario;
+    //private static Scanner sc = new Scanner(System.in);
 
     public Mapa() {
         habitaciones();
         // Establecemos posicion inicial, queremos empezar en la 2ª casilla del 3er array
         posicionJugador = new Posicion(2, 1);
-        inventario = new Inventario();
+        //inventario = new Inventario();
         juegoEnCurso = true;
-        objetoEncontrado = false;
         mostrarInfoHabitacionActual();
 
     }
