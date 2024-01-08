@@ -10,12 +10,9 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Mapa juegoMapa = new Mapa();
-		//juegoMapa.mostrarMapa();
 
 		while (juegoMapa.isJuegoEnCurso()) {
 			//Empieza el juego
-			//Hay que meter la intro
-			//Mapa.textoIntroTuto();
 			Tuto.textoIntroTuto();
 			mostrarMenu();
 
@@ -29,6 +26,14 @@ public class Main {
 				case 2:
 					Objeto objetoEncontrado = objetoParaRecoger();
 					recogerObjetoEncontrado(objetoEncontrado);
+					break;
+				case 3:
+					//Podemos no decir qué tienen que poner y hacer pensar al jugador
+					System.out.println("¿En que dirección quieres moverte?");
+					String direccion = scanner.next().toLowerCase();
+					juegoMapa.moverse(direccion);
+					//Línea 36 debe borrarse, solo para testear
+					juegoMapa.mostrarInfoHabitacionActual();
 					break;
 				case 5:
 					//Menú extra
@@ -46,14 +51,14 @@ public class Main {
 							
 							break;
 						default:
-							//Mensaje de error
+							//Mensaje de error en menú extra
 							break;
 					}
 					
 				break;
 			
 				default:
-					//Mensaje de error
+					//Mensaje de error de menú
 					break;
 			}
 
@@ -68,7 +73,7 @@ public class Main {
         System.out.println("3.- Moverse. ");
         System.out.println("4.- Combate. ");
         System.out.println("5.- Extra. ");
-        System.out.println("6.- Salir del juego. ");
+        System.out.println("6.- Salir del juego. \n");
         System.out.println("Elige una opción: ");
     }
 
@@ -94,7 +99,10 @@ public class Main {
 			//Lo mismo
 				Tuto.textoIntroFinal();
 				break;
-		
+			case "Sala Central":
+			//Lo mismo
+				Tuto.textoIntroFinal();
+				break;
 			default:
 				break;
 		}
@@ -119,7 +127,6 @@ public class Main {
 		} else {
 			System.out.println("No hay objetos que recoger. ¿Has buscado bien?");
 		}
-
 	}
 
 	private static Objeto objetoParaRecoger(){
@@ -134,8 +141,6 @@ public class Main {
 				return objeto;
 			}
 		}
-		return null;
-		
+		return null;		
 	}
-
 }

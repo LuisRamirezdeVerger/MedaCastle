@@ -23,19 +23,20 @@ public class Mapa {
     public void habitaciones(){
         habitaciones = new Habitacion[3][3];
         //Completa las habitaciones!
-        habitaciones[0][0] = new Habitacion("Baños", "descripcion00", new Inventario());
+        habitaciones[0][0] = new Habitacion("Aseos", "descripcion00", new Inventario());
         habitaciones[0][1] = new Habitacion("Habitacion2", "decripcion01", new Inventario());
         habitaciones[0][2] = new Habitacion("Habitacion3", "decripcion02", new Inventario());
-        //Mejora las descripciones! Busca la manera de implementar los temporizadores
+
         habitaciones[1][0] = new Habitacion("Habitacion4", "descripcion10", new Inventario());
-        habitaciones[1][1] = new Habitacion("Sala central", "Descripción de la sala central", new Inventario());
+        habitaciones[1][1] = new Habitacion("Sala Central", "Descripción de la sala central", creaInventarioSalaCentral());
         habitaciones[1][2] = new Habitacion("Habitacion6", "decripcion12", new Inventario());
-        //
+        
         habitaciones[2][0] = new Habitacion("Entrada", "Punto de inicio", null);//En esta habitación no se lootea nada
         habitaciones[2][1] = new Habitacion("Pasillo movedizo", "Las paredes se mueven. ", creaInventarioEntrada());
         habitaciones[2][2] = new Habitacion("Sala Secreta", "decripcion02", creaInventarioSalaSecreta());
     }
 
+    //Creamos los inventarios de cada habitación
     private Inventario creaInventarioEntrada(){
         Inventario inventarioEntrada = new Inventario();
         inventarioEntrada.recogerObjeto(new Objeto("Llave"));
@@ -45,18 +46,28 @@ public class Mapa {
 
     private Inventario creaInventarioSalaSecreta(){
         Inventario inventarioSalaSecreta = new Inventario();
-        inventarioSalaSecreta.recogerObjeto(new Objeto("Piedra de poder"));//Esta piedra da +1 al contador de kills
+        inventarioSalaSecreta.recogerObjeto(new Objeto("Piedra de poder"));//Esta piedra daría +1 al "daño"
         return inventarioSalaSecreta;
 
     }
 
+    private Inventario creaInventarioSalaCentral(){
+        Inventario inventarioSalaCentral = new Inventario();
+        inventarioSalaCentral.recogerObjeto(new Objeto("Gafas Espectrales"));
+        return inventarioSalaCentral;
+    }
+
+
+    //Terminan los inventarios (Plantea llevarlos a otro archivo para una mayor legibilidad de código)
+
+
+    //Método para tener la posición del jugador -- NOTA!! "Para tener = get(getters!!)"
     public void mostrarInfoHabitacionActual(){
         Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
         habitacionActual.mostrarInfoHabitacion();
     }
 
     public void mostrarMapa() {
-        //if (juegoEnCurso) {
             for (int i = 0; i < habitaciones.length; i++) {
                 for (int j = 0; j < habitaciones[i].length; j++) {
                     if (i == posicionJugador.getX() && j == posicionJugador.getY()) {
@@ -67,12 +78,17 @@ public class Mapa {
                 }
                 System.out.println();
             }
-        //}
    
         //Piensa donde usar todo esto
         // Verificamos si hay objetos en la hab actual
         // ............................................ \\
         //inventario.mostrarInventario();
+    }
+
+    //Movimiento
+
+    public void moverse(String direccion){
+        //Lógica aquí
     }
 
     public boolean isJuegoEnCurso(){
