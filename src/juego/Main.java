@@ -107,6 +107,7 @@ public class Main {
 			if (!objeto.getEncontrado()) {
 				objeto.setEncontrado(true);
 				System.out.println("Has encontrado " + objeto.getNombre());
+				//Mira esto bien, no debería de recoger aquí
 				inventario.recogerObjeto(objeto);
 			}
 		}
