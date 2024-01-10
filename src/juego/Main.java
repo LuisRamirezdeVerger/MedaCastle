@@ -29,7 +29,7 @@ public class Main {
 					break;
 				case 3:
 					//Podemos no decir qué tienen que poner y hacer pensar al jugador
-					System.out.println("¿En que dirección quieres moverte?");
+					System.out.println("¿En que dirección quieres moverte? ");
 					String direccion = scanner.next().toLowerCase();
 					juegoMapa.moverse(direccion);
 					//Línea 36 debe borrarse, solo para testear
@@ -92,7 +92,8 @@ public class Main {
 		String nombreHabitacion = habitacionActual.getNombre();
 		switch (nombreHabitacion) {
 			case "Entrada":
-			//Ejemplo: Tuto.texto...(); no va ahí
+			//Esto es un ejemplo: Tuto.texto...(); no va ahí
+			//Modifica los archivos del package "habitaciones"
 				Tuto.textoIntro();
 				break;
 			case "Sala Secreta":
@@ -114,7 +115,7 @@ public class Main {
 		for (Objeto objeto : objetosHabitacion) {
 			if (!objeto.getEncontrado()) {
 				objeto.setEncontrado(true);
-				System.out.println("Has encontrado " + objeto.getNombre());
+				System.out.println("Has encontrado " + objeto.getNombre() + ". ");
 				//Mira esto bien, no debería de recoger aquí
 				inventario.recogerObjeto(objeto);
 			}
@@ -124,9 +125,9 @@ public class Main {
 	private static void recogerObjetoEncontrado(Objeto objeto){
 		if (objeto.getEncontrado()) {
 			inventario.recogerObjeto(objeto);
-			System.out.println("Has recogido " + objeto.getNombre());
+			System.out.println("Has recogido " + objeto.getNombre() + ". ");
 		} else {
-			System.out.println("No hay objetos que recoger. ¿Has buscado bien?");
+			System.out.println("No hay objetos que recoger. ¿Has buscado bien? ");
 		}
 	}
 

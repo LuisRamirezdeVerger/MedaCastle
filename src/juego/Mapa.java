@@ -46,7 +46,7 @@ public class Mapa {
 
     private Inventario creaInventarioSalaSecreta(){
         Inventario inventarioSalaSecreta = new Inventario();
-        inventarioSalaSecreta.recogerObjeto(new Objeto("Piedra de poder"));//Esta piedra daría +1 al "daño"
+        inventarioSalaSecreta.recogerObjeto(new Objeto("Piedra de *nombreInventado*"));//Esta piedra daría +1 al "daño"
         return inventarioSalaSecreta;
 
     }
