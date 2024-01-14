@@ -69,9 +69,6 @@ public class Habitacion {
         return habitacionOeste;
     }
 
-    // public Tuto getTextoIntro(){
-    //     return this.textoIntro;
-    // }
 
     //Esto mostrará la info de la hab, podemos usarla para programar y ver resultados
     //Se está usando en el modo extra -> ¿Dónde estoy?
