@@ -31,7 +31,7 @@ public class Main {
 					//Podemos no decir qué tienen que poner y hacer pensar al jugador
 					System.out.println("¿En que dirección quieres moverte? ");
 					String direccion = scanner.next().toLowerCase();
-					juegoMapa.moverse(direccion);
+					Mapa.moverse(direccion);
 					//Línea 36 debe borrarse, solo para testear
 					juegoMapa.mostrarInfoHabitacionActual();
 					break;

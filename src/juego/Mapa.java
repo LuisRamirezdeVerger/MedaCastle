@@ -1,11 +1,13 @@
 package juego;
 
+import java.util.Scanner;
+
 //import java.util.*;
 
 public class Mapa {
     //Recuerda preguntar si tener varios privates con los mismos nombres es redundante
-    private Habitacion[][] habitaciones;
-    private Posicion posicionJugador;
+    private static Habitacion[][] habitaciones;
+    private static Posicion posicionJugador;
     private boolean juegoEnCurso;
     //private Inventario inventario;
     //private static Scanner sc = new Scanner(System.in);
@@ -20,10 +22,12 @@ public class Mapa {
 
     }
 
-    public void habitaciones(){
+    public static void habitaciones(){
         habitaciones = new Habitacion[3][3];
+        //Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
         //Completa las habitaciones!
         habitaciones[0][0] = new Habitacion("Aseos", "descripcion00", new Inventario());
+        habitaciones[0][0].setHabitacionEste(habitaciones[0][1]);
         habitaciones[0][1] = new Habitacion("Habitacion2", "decripcion01", new Inventario());
         habitaciones[0][2] = new Habitacion("Habitacion3", "decripcion02", new Inventario());
 
@@ -37,21 +41,21 @@ public class Mapa {
     }
 
     //Creamos los inventarios de cada habitación
-    private Inventario creaInventarioEntrada(){
+    private static Inventario creaInventarioEntrada(){
         Inventario inventarioEntrada = new Inventario();
         inventarioEntrada.recogerObjeto(new Objeto("Llave"));
         inventarioEntrada.recogerObjeto(new Objeto("Espada"));
         return inventarioEntrada;
     }
 
-    private Inventario creaInventarioSalaSecreta(){
+    private static Inventario creaInventarioSalaSecreta(){
         Inventario inventarioSalaSecreta = new Inventario();
         inventarioSalaSecreta.recogerObjeto(new Objeto("Piedra de *nombreInventado*"));//Esta piedra daría +1 al "daño"
         return inventarioSalaSecreta;
 
     }
 
-    private Inventario creaInventarioSalaCentral(){
+    private static Inventario creaInventarioSalaCentral(){
         Inventario inventarioSalaCentral = new Inventario();
         inventarioSalaCentral.recogerObjeto(new Objeto("Gafas Espectrales"));
         return inventarioSalaCentral;
@@ -65,6 +69,10 @@ public class Mapa {
     public void mostrarInfoHabitacionActual(){
         Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
         habitacionActual.mostrarInfoHabitacion();
+    }
+
+    public static void habitacionActual(){
+        //Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
     }
 
     public void mostrarMapa() {
@@ -87,9 +95,58 @@ public class Mapa {
 
     //Movimiento
 
-    public void moverse(String direccion){
-        //Lógica aquí
+    public static void manejarMovimiento(Scanner scanner){
+        System.out.println("Elige una dirección: ");
+        String direccion = scanner.next().toLowerCase();
+
+        switch (direccion) {
+            case "norte":
+                moverse(direccion);
+                break;
+            case "sur":
+                moverse(direccion);
+                break;
+            case "este":
+                moverse(direccion);
+                break;
+            case "oeste":
+                moverse(direccion);
+                break;
+            default:
+                System.out.println("Elige una dirección correcta. ");
+                break;
+        }
     }
+
+    public static void moverse(String direccion){
+        Habitacion nuevaHabitacion = null;
+        
+        switch (direccion) {
+            case "norte":
+                nuevaHabitacion = Habitacion.getHabitacionNorte();                
+                break;
+                case "sur":
+                nuevaHabitacion = Habitacion.getHabitacionSur();                
+                break;
+                case "este":
+                nuevaHabitacion = Habitacion.getHabitacionEste();                
+                break;
+                case "oeste":
+                nuevaHabitacion = Habitacion.getHabitacionOeste();                
+                break;
+            default:
+                break;
+        }
+
+        //Es posible que las coordenadas haya que meteras en array
+        if (nuevaHabitacion != null) {
+            posicionJugador = new Posicion(posicionJugador.getX(), posicionJugador.getY());
+        } else {
+            System.out.println("No puedes ir en esa dirección. ");
+        }
+    }
+
+    //Termina movimiento
 
     public boolean isJuegoEnCurso(){
         return juegoEnCurso;

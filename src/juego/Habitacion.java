@@ -5,6 +5,10 @@ public class Habitacion {
     private String nombre;
     private String descripcion;
     private Inventario inventario;
+    private static Habitacion habitacionNorte;
+    private static Habitacion habitacionSur;
+    private static Habitacion habitacionEste;
+    private static Habitacion habitacionOeste;
     //private Tuto textoIntro;
 
     public Habitacion (String nombre, String descripcion, Inventario inventario){
@@ -31,6 +35,38 @@ public class Habitacion {
 
     public void setInventario(Inventario nuevoInventario){
         this.inventario = nuevoInventario;
+    }
+
+    public void setHabitacionNorte(Habitacion nuevoHabitacionNorte){
+        Habitacion.habitacionNorte = nuevoHabitacionNorte;
+    }
+
+    public void setHabitacionSur(Habitacion nuevoHabitacionSur){
+        Habitacion.habitacionSur = nuevoHabitacionSur;
+    }
+
+    public void setHabitacionEste(Habitacion nuevoHabitacionEste){
+        Habitacion.habitacionEste = nuevoHabitacionEste;
+    }
+
+    public void setHabitacionOeste(Habitacion nuevoHabitacionOeste){
+        Habitacion.habitacionOeste = nuevoHabitacionOeste;
+    }
+
+    public static Habitacion getHabitacionNorte(){
+        return habitacionNorte;
+    }
+
+    public static Habitacion getHabitacionSur(){
+        return habitacionSur;
+    }
+
+    public static Habitacion getHabitacionEste(){
+        return habitacionEste;
+    }
+
+    public static Habitacion getHabitacionOeste(){
+        return habitacionOeste;
     }
 
     // public Tuto getTextoIntro(){
