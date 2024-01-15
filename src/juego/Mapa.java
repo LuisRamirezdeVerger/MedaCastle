@@ -26,16 +26,34 @@ public class Mapa {
         habitaciones = new Habitacion[3][3];
         //Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
         //Completa las habitaciones!
+    /*   0 1 2
+         0 1 2
+         0 1 2  */ 
         habitaciones[0][0] = new Habitacion("Aseos", "descripcion00", new Inventario());
         habitaciones[0][0].setHabitacionEste(habitaciones[0][1]);
+        habitaciones[0][0].setHabitacionSur(habitaciones[1][0]);
+
         habitaciones[0][1] = new Habitacion("Habitacion2", "decripcion01", new Inventario());
+        habitaciones[0][1].setHabitacionOeste(habitaciones[0][0]);
+        habitaciones[0][1].setHabitacionEste(habitaciones[0][2]);
+        habitaciones[0][1].setHabitacionSur(habitaciones[1][1]);
+
         habitaciones[0][2] = new Habitacion("Habitacion3", "decripcion02", new Inventario());
+        habitaciones[0][2].setHabitacionOeste(habitaciones[0][1]);
 
         habitaciones[1][0] = new Habitacion("Habitacion4", "descripcion10", new Inventario());
+
         habitaciones[1][1] = new Habitacion("Sala Central", "Descripción de la sala central", creaInventarioSalaCentral());
+        habitaciones[1][1].setHabitacionNorte(habitaciones[0][1]);
+        habitaciones[1][1].setHabitacionSur(habitaciones[2][1]);
+        habitaciones[1][1].setHabitacionEste(habitaciones[2][2]);
+        habitaciones[1][1].setHabitacionOeste(habitaciones[0][1]);
+
         habitaciones[1][2] = new Habitacion("Habitacion6", "decripcion12", new Inventario());
         
         habitaciones[2][0] = new Habitacion("Entrada", "Punto de inicio", null);//En esta habitación no se lootea nada
+        habitaciones[2][0].setHabitacionEste(habitaciones[2][1]);
+
         habitaciones[2][1] = new Habitacion("Pasillo movedizo", "Las paredes se mueven. ", creaInventarioEntrada());
         habitaciones[2][2] = new Habitacion("Sala Secreta", "decripcion02", creaInventarioSalaSecreta());
     }
