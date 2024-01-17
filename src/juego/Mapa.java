@@ -26,9 +26,22 @@ public class Mapa {
         habitaciones = new Habitacion[3][3];
         //Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
         //Completa las habitaciones!
-    /*   0 1 2
-         0 1 2
-         0 1 2  */ 
+    /*  0 1 2
+        0 1 2
+        0 1 2  
+         
+        Asegurar estos datos, pueden estar buggeados
+        00 -> este, sur ... 01, 10
+        01 -> oeste, este, sur ... 00, 02, 11
+        02 -> oeste ... 01
+        10 -> este ... 11
+        11 -> norte, sur, este, oeste ... 01, 21, 22, 01
+        12 -> sur, este ... 22, 11
+        20 -> este ... 21
+        21 -> norte ... 11
+        22 -> norte ... 21
+         
+         */ 
         habitaciones[0][0] = new Habitacion("Aseos", "descripcion00", new Inventario());
         habitaciones[0][0].setHabitacionEste(habitaciones[0][1]);
         habitaciones[0][0].setHabitacionSur(habitaciones[1][0]);
@@ -51,10 +64,11 @@ public class Mapa {
 
         habitaciones[1][2] = new Habitacion("Habitacion6", "decripcion12", new Inventario());
         
-        habitaciones[2][0] = new Habitacion("Entrada", "Punto de inicio", null);//En esta habitación no se lootea nada
+        habitaciones[2][0] = new Habitacion("Entrada", "Punto de inicio", null); //Si lo ponemos así, en esta habitación no se lootea nada
         habitaciones[2][0].setHabitacionEste(habitaciones[2][1]);
 
         habitaciones[2][1] = new Habitacion("Pasillo movedizo", "Las paredes se mueven. ", creaInventarioEntrada());
+        habitaciones[2][1].setHabitacionNorte(habitaciones[1][1]);
         habitaciones[2][2] = new Habitacion("Sala Secreta", "decripcion02", creaInventarioSalaSecreta());
     }
 
