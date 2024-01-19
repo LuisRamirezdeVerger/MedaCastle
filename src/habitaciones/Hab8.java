@@ -39,5 +39,10 @@ public class Hab8 {
         System.out.println("Bienvenido a la Sala 9");
         Temp.Temporizador(2500);
     }
+
+    public static void pistasHab8(){
+        //Rellenar
+        System.out.println("Pistas de la habitación 8");
+    }
         
 }

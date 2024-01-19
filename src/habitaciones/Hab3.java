@@ -31,5 +31,10 @@ public class Hab3 {
         Temp.Temporizador(2500);
         System.out.println("Es momento de descubrir si la puerta sigue bloqueada o no..."); // el jugador se dirige a la puerta y al haber derrotado al monstruo la puerta se ha desbloqueado y ya puede salir y avanzar
     }
+
+    public static void pistasHab3(){
+        //Rellenar
+        System.out.println("Pistas de la habitación 3");
+    }
         
 }

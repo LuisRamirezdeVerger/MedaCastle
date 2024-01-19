@@ -13,7 +13,7 @@ public class Main {
 
 		while (juegoMapa.isJuegoEnCurso()) {
 			//Empieza el juego
-			Tuto.textoIntroTuto();
+			//Tuto.textoIntroTuto();
 			mostrarMenu();
 
 			// Input del jugador
@@ -58,12 +58,12 @@ public class Main {
 				break;
 			
 				default:
-					//Mensaje de error de menú
+					//Mensaje de error en menú
 					break;
 			}
 
 		}
-		System.out.println("Mensaje de finalización. ");
+		System.out.println("Mensaje de finalización del juego. ");
 	}
 
 	private static void mostrarMenu(){
@@ -78,10 +78,17 @@ public class Main {
     }
 
 	private static int opcionUsuario(Scanner scanner) {
+
+		//con esto podemos "trollear" a los que no sepan que poner
+		if (scanner.hasNext("hola")) {
+			System.out.println("Hello World!");
+		}
 		while (!scanner.hasNextInt()) {
 			System.out.println("Escoge un número válido. ");
 			scanner.next(); //Limpia el bufer del scanner
+			
 		}
+		
 		return scanner.nextInt();
 	}
 

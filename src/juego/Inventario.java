@@ -14,7 +14,7 @@ public class Inventario {
     }
 
     public void mostrarInventario(){
-        if (getObjetos().isEmpty()){
+        if (getObjetos().isEmpty()){ // Si el inventario no funciona, invertir aquí con "!"
             System.out.println("No tienes nada en el inventario, aún... ");
         } else {
             System.out.println("Inventario: \n");

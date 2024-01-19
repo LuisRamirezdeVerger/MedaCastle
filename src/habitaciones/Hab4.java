@@ -37,5 +37,10 @@ public class Hab4 {
         Temp.Temporizador(2500);
         //El número que abre el candado es 11//la otra opción podrá ser el número 12//
     }
+
+    public static void pistasHab4(){
+        //Rellenar
+        System.out.println("Pistas de la habitación 4");
+    }
         
 }

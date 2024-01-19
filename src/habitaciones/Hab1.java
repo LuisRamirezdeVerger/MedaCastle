@@ -44,4 +44,9 @@ public class Hab1 {
         sc.nextLine();
         
     } 
+
+    public static void pistasHab1(){
+        //Rellenar
+        System.out.println("Pistas de la habitación 1");
+    }
 }

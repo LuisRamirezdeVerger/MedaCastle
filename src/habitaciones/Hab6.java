@@ -31,5 +31,10 @@ public class Hab6 {
         Temp.Temporizador(2500);
 
     }
+
+    public static void pistasHab6(){
+        //Rellenar
+        System.out.println("Pistas de la habitación 6");
+    }
         
 }

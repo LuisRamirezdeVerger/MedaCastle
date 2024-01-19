@@ -32,5 +32,10 @@ public class Hab7 {
         System.out.println("Al derrotar a tu oponente, este empieza a desintegrarse y convertirse en ceniza que se mezcla en el ambiente hasta hacer que reaparezcan la puerta y la ventana."); 
         Temp.Temporizador(2500); // QUE SALGA
     }
+
+    public static void pistasHab7(){
+        //Rellenar
+        System.out.println("Pistas de la habitación 7");
+    }
         
 }

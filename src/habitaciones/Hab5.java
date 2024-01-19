@@ -15,4 +15,9 @@ public class Hab5 {
         //                    "del líquido aléjate, ¡buena decisión!*"); // si abre el sobre, que el jugador interactúe para salir de la sala
     }
 
+    public static void pistasHab5(){
+        //Rellenar
+        System.out.println("Pistas de la habitación 5");
+    }
+
 }

@@ -72,5 +72,10 @@ public class Hab2 {
         }
     }
 
+    public static void pistasHab2(){
+        //Rellenar
+        System.out.println("Pistas de la habitación 2");
+    }
+
         
 }

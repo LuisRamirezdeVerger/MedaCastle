@@ -35,7 +35,7 @@ public class Hab9 {
         Temp.Temporizador(2500); // esto es lo que aparece cuando fallan la pregunta, aparece el monstruo
         System.out.println("Empiezas a escuchar un ruido un tanto alejado a tus espaldas...");
         Temp.Temporizador(2500);  
-        System.out.println("¡Grrrrr!...");
+        System.out.println("¡Grrrrr...!");
         Temp.Temporizador(2500);
         System.out.println("Al darte la vuelta entre una neblina (que antes no estaba) se empieza a perfilar ni más ni menos... ¡QUE UN MEDACGORGON!");
         Temp.Temporizador(2500);
@@ -44,6 +44,11 @@ public class Hab9 {
         System.out.println("¡VA DIRECTO HACIA TÍ!");
         Temp.Temporizador(2500); // tiene que luchar
         
+    }
+
+    public static void pistasHab9(){
+        //Rellenar
+        System.out.println("Pistas de la habitación 9");
     }
         
 }
