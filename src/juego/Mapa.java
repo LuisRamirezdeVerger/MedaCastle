@@ -15,7 +15,7 @@ public class Mapa {
     public Mapa() {
         habitaciones();
         // Establecemos posicion inicial, queremos empezar en la 2ª casilla del 3er array
-        posicionJugador = new Posicion(2, 1);
+        posicionJugador = new Posicion(2, 0);
         //inventario = new Inventario();
         juegoEnCurso = true;
         mostrarInfoHabitacionActual();
@@ -26,50 +26,43 @@ public class Mapa {
         habitaciones = new Habitacion[3][3];
         //Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
         //Completa las habitaciones!
-    /*  0 1 2
-        0 1 2
-        0 1 2  
-         
-        Asegurar estos datos, pueden estar buggeados
-        00 -> este, sur ... 01, 10
-        01 -> oeste, este, sur ... 00, 02, 11
-        02 -> oeste ... 01
-        10 -> este ... 11
-        11 -> norte, sur, este, oeste ... 01, 21, 22, 01
-        12 -> sur, este ... 22, 11
-        20 -> este ... 21
-        21 -> norte ... 11
-        22 -> norte ... 21
-         
-         */ 
-        habitaciones[0][0] = new Habitacion("Aseos", "descripcion00", new Inventario());
+     
+        habitaciones[0][0] = new Habitacion("Aseos", "AseosDescripción", new Inventario());
         habitaciones[0][0].setHabitacionEste(habitaciones[0][1]);
         habitaciones[0][0].setHabitacionSur(habitaciones[1][0]);
 
-        habitaciones[0][1] = new Habitacion("Habitacion2", "decripcion01", new Inventario());
+        habitaciones[0][1] = new Habitacion("Almenara", "Descripción almenara", new Inventario()); //Podemos poner que busquen madera y tenga que encender el fuego
         habitaciones[0][1].setHabitacionOeste(habitaciones[0][0]);
         habitaciones[0][1].setHabitacionEste(habitaciones[0][2]);
         habitaciones[0][1].setHabitacionSur(habitaciones[1][1]);
 
-        habitaciones[0][2] = new Habitacion("Habitacion3", "decripcion02", new Inventario());
+        habitaciones[0][2] = new Habitacion("Sala de torturas", "Descripción de la Sala de torturas", new Inventario());
         habitaciones[0][2].setHabitacionOeste(habitaciones[0][1]);
 
-        habitaciones[1][0] = new Habitacion("Habitacion4", "descripcion10", new Inventario());
+        habitaciones[1][0] = new Habitacion("Dormitorio", "Descripción del dormitorio", new Inventario());
+        habitaciones[1][0].setHabitacionNorte(habitaciones[0][0]);
+        habitaciones[1][0].setHabitacionEste(habitaciones[1][1]);
 
         habitaciones[1][1] = new Habitacion("Sala Central", "Descripción de la sala central", creaInventarioSalaCentral());
         habitaciones[1][1].setHabitacionNorte(habitaciones[0][1]);
         habitaciones[1][1].setHabitacionSur(habitaciones[2][1]);
-        habitaciones[1][1].setHabitacionEste(habitaciones[2][2]);
-        habitaciones[1][1].setHabitacionOeste(habitaciones[0][1]);
+        habitaciones[1][1].setHabitacionEste(habitaciones[1][2]);
+        habitaciones[1][1].setHabitacionOeste(habitaciones[1][0]);
 
-        habitaciones[1][2] = new Habitacion("Habitacion6", "decripcion12", new Inventario());
+        habitaciones[1][2] = new Habitacion("Patio de Armas", "Descripcion Patio de Armas", new Inventario());
+        habitaciones[1][2].setHabitacionSur(habitaciones[2][2]);
+        habitaciones[1][2].setHabitacionOeste(habitaciones[1][1]);
         
-        habitaciones[2][0] = new Habitacion("Entrada", "Punto de inicio", null); //Si lo ponemos así, en esta habitación no se lootea nada
+        habitaciones[2][0] = new Habitacion("Entrada", "Punto de inicio", creaInventarioEntrada()); 
         habitaciones[2][0].setHabitacionEste(habitaciones[2][1]);
 
-        habitaciones[2][1] = new Habitacion("Pasillo movedizo", "Las paredes se mueven. ", creaInventarioEntrada());
+        habitaciones[2][1] = new Habitacion("Pasillo movedizo", "Las paredes se mueven. ", null); //Si lo ponemos así, en esta habitación no se lootea nada
         habitaciones[2][1].setHabitacionNorte(habitaciones[1][1]);
+        habitaciones[2][1].setHabitacionOeste(habitaciones[2][0]);
+
         habitaciones[2][2] = new Habitacion("Sala Secreta", "decripcion02", creaInventarioSalaSecreta());
+        habitaciones[2][2].setHabitacionNorte(habitaciones[1][2]);
+
     }
 
     //Creamos los inventarios de cada habitación
