@@ -13,7 +13,12 @@ public class Main {
 
 		while (juegoMapa.isJuegoEnCurso()) {
 			//Empieza el juego
-			//Tuto.textoIntroTuto();
+			//Tuto.textoIntroTuto(); ...
+
+			//Es un simple ejemplo, Nombre será un scanner y se cambiará con P1.setNombre();, lo mismo para la raza, pero en este caso, crearemos un Switch
+			Jugador p1 = new Jugador(null, 0, 0, 0, 0, 20, null);
+
+			//Bienvenida de juego aquí. Introducir en el package "habitaciones"
 			mostrarMenu();
 
 			// Input del jugador

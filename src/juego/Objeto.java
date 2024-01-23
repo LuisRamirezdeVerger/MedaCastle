@@ -20,4 +20,6 @@ public class Objeto {
     public void setEncontrado(boolean nuevoEncontrado){
         this.encontrado = nuevoEncontrado;
     }
+
+    
 }

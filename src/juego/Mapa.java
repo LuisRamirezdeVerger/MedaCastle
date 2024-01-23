@@ -12,7 +12,7 @@ public class Mapa {
 
     public Mapa() {
         habitaciones();
-        // Establecemos posicion inicial, queremos empezar en la 2ª casilla del 3er array
+        // Establecemos posicion inicial, queremos empezar en la 1ª casilla del 3er array
         posicionJugador = new Posicion(2, 0);
         //inventario = new Inventario();
         juegoEnCurso = true;
