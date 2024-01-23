@@ -9,8 +9,6 @@ public class Mapa {
     private static Habitacion[][] habitaciones;
     private static Posicion posicionJugador;
     private boolean juegoEnCurso;
-    //private Inventario inventario;
-    //private static Scanner sc = new Scanner(System.in);
 
     public Mapa() {
         habitaciones();
@@ -27,11 +25,11 @@ public class Mapa {
         //Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
         //Completa las habitaciones!
      
-        habitaciones[0][0] = new Habitacion("Aseos", "AseosDescripción", new Inventario());
+        habitaciones[0][0] = new Habitacion("Aseos", "Descripción Aseos", new Inventario());
         habitaciones[0][0].setHabitacionEste(habitaciones[0][1]);
         habitaciones[0][0].setHabitacionSur(habitaciones[1][0]);
 
-        habitaciones[0][1] = new Habitacion("Almenara", "Descripción almenara", new Inventario()); //Podemos poner que busquen madera y tenga que encender el fuego
+        habitaciones[0][1] = new Habitacion("Almenara", "Descripción Almenara", new Inventario()); //Podemos poner que busquen madera y tenga que encender el fuego
         habitaciones[0][1].setHabitacionOeste(habitaciones[0][0]);
         habitaciones[0][1].setHabitacionEste(habitaciones[0][2]);
         habitaciones[0][1].setHabitacionSur(habitaciones[1][1]);
@@ -60,7 +58,7 @@ public class Mapa {
         habitaciones[2][1].setHabitacionNorte(habitaciones[1][1]);
         habitaciones[2][1].setHabitacionOeste(habitaciones[2][0]);
 
-        habitaciones[2][2] = new Habitacion("Sala Secreta", "decripcion02", creaInventarioSalaSecreta());
+        habitaciones[2][2] = new Habitacion("Sala Secreta", "Descripción Sala Secreta. ", creaInventarioSalaSecreta());
         habitaciones[2][2].setHabitacionNorte(habitaciones[1][2]);
 
     }
@@ -96,9 +94,10 @@ public class Mapa {
         habitacionActual.mostrarInfoHabitacion();
     }
 
-    public static void habitacionActual(){
-        //Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
-    }
+    // *****************  HABITACIÓN ACTUAL *************************** \\
+    // public static void habitacionActual(){
+    //     Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
+    // }
 
     public void mostrarMapa() {
             for (int i = 0; i < habitaciones.length; i++) {
@@ -111,11 +110,6 @@ public class Mapa {
                 }
                 System.out.println();
             }
-   
-        //Piensa donde usar todo esto
-        // Verificamos si hay objetos en la hab actual
-        // ............................................ \\
-        //inventario.mostrarInventario();
     }
 
     //Movimiento
@@ -163,7 +157,6 @@ public class Mapa {
                 break;
         }
 
-        //Es posible que las coordenadas haya que meteras en array
         if (nuevaHabitacion != null) {
             posicionJugador = new Posicion(posicionJugador.getX(), posicionJugador.getY());
         } else {

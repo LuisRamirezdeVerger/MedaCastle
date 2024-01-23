@@ -79,7 +79,7 @@ public class Main {
 
 	private static int opcionUsuario(Scanner scanner) {
 
-		//con esto podemos "trollear" a los que no sepan que poner
+		//con esto podemos "trollear" a los que no sepan qué poner
 		if (scanner.hasNext("hola")) {
 			System.out.println("Hello World!");
 		}

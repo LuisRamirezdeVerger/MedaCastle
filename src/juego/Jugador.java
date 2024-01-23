@@ -1,5 +1,7 @@
 package juego;
 
+import java.util.Scanner;
+
 public class Jugador {
 
     private String nombre;
@@ -55,11 +57,19 @@ public class Jugador {
     }
 
     public void setSabiduria(int nuevoSabiduria){
-        this.fuerza = nuevoSabiduria;
+        this.sabiduria = nuevoSabiduria;
     }
 
     public int getSabiduria(){
         return this.sabiduria;
+    }
+
+    public void setPuntosRestantes (int nuevoPuntosRestantes){
+        this.puntosRestantes = nuevoPuntosRestantes;
+    }
+
+    public int getPuntosRestantes(){
+        return this.puntosRestantes;
     }
     
     public void setRaza(Raza nuevoRaza){
@@ -69,5 +79,63 @@ public class Jugador {
     public Raza getRaza(){
         return this.raza;
     }
+    
+    public void repartirPuntos(){
+     
+        System.out.println("Tienes " + getPuntosRestantes() + ". ");
+        
+        System.out.println("--- Menú --- \n");
+        System.out.println("Fuerza: " + getFuerza());
+        System.out.println("Agilidad: " + getAgilidad());
+        System.out.println("Intelecto: " + getIntelecto());
+        System.out.println("Sabiduría: " + getSabiduria());
+
+        System.out.println("Elige una estadística: \n");
+        System.out.println("1.- Fuerza " );
+        System.out.println("2.- Agilidad " );
+        System.out.println("3.- Intelecto ");
+        System.out.println("4.- Sabiduría ");
+        //scEst == Escánner Estadísticas
+        Scanner scEst = new Scanner(System.in);
+       
+
+        switch (scEst.nextInt()) {
+            
+            case 1:
+                System.out.println("Has elegido -> Fuerza " );
+                System.out.println("¿Cúantos quieres añadir?");
+                Scanner scPnt = new Scanner(System.in);
+                //Pregunta aquí!!
+                //int nuevoFuerza = scPnt.nextInt();
+                //setFuerza(getFuerza() + nuevoFuerza);
+                setFuerza(scPnt.nextInt() + getFuerza()); 
+                break;
+            //CopyPaste cambiando nombres y variables a las estadísticas existentes
+            case 2:
+                break;
+        
+            case 3:   
+                break;
+        
+            case 4:            
+                break;
+        
+            default:
+                System.out.println("Elige una opción correcta. ");
+                break;
+        }
+        //Sistema repartir puntos
+        scEst.close();
+    }
+
+    public void comprobarPuntos(){
+
+        System.out.println("Tienes " + getPuntosRestantes() + ". ");
+        System.out.println(" --- Estadísticas --- \n");
+        System.out.println("Fuerza: " + getFuerza());
+        System.out.println("Agilidad: " + getAgilidad());
+        System.out.println("Intelecto: " + getIntelecto());
+        System.out.println("Sabiduría: " + getSabiduria());
+    }    
 
 }
