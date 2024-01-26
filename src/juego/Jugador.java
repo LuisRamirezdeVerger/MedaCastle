@@ -11,6 +11,7 @@ public class Jugador {
     private int sabiduria;
     private int puntosRestantes;
     private Raza raza;
+    private Scanner sc;
     
     public Jugador(String nombre, int fuerza, int agilidad, int intelecto, int sabiduria, int puntosRestantes, Raza raza){
         this.nombre = nombre;
@@ -95,20 +96,19 @@ public class Jugador {
         System.out.println("2.- Agilidad " );
         System.out.println("3.- Intelecto ");
         System.out.println("4.- Sabiduría ");
-        //scEst == Escánner Estadísticas
-        Scanner scEst = new Scanner(System.in);
+        System.out.println("5.- Salir ");
+
+        //Ejemplo de sumar las estadísticas
+        setFuerza(getFuerza() + sc.nextInt() );
+        
        
 
-        switch (scEst.nextInt()) {
+        switch (sc.nextInt()) {
             
             case 1:
-                System.out.println("Has elegido -> Fuerza " );
-                System.out.println("¿Cúantos quieres añadir?");
-                Scanner scPnt = new Scanner(System.in);
-                //Pregunta aquí!!
-                //int nuevoFuerza = scPnt.nextInt();
-                //setFuerza(getFuerza() + nuevoFuerza);
-                setFuerza(scPnt.nextInt() + getFuerza()); 
+                System.out.println("Has elegido -> Fuerza: " );
+                System.out.println("¿Cúantos quieres añadir? ");
+                setFuerza(sc.nextInt() + getFuerza()); 
                 break;
             //CopyPaste cambiando nombres y variables a las estadísticas existentes
             case 2:
@@ -119,18 +119,20 @@ public class Jugador {
         
             case 4:            
                 break;
-        
+            
+            case 5:
+                break;
             default:
                 System.out.println("Elige una opción correcta. ");
                 break;
         }
         //Sistema repartir puntos
-        scEst.close();
+        sc.close();
     }
 
     public void comprobarPuntos(){
 
-        System.out.println("Tienes " + getPuntosRestantes() + ". ");
+        System.out.println("Tienes " + getPuntosRestantes() + " puntos de estadísticas restantes. ");
         System.out.println(" --- Estadísticas --- \n");
         System.out.println("Fuerza: " + getFuerza());
         System.out.println("Agilidad: " + getAgilidad());
