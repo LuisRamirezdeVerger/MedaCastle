@@ -5,7 +5,7 @@ Al hacer la clase Raza abstracta, podemos definir propiedades y métodos comunes
 al mismo tiempo, EXIGIR que cada raza concreta tenga sus propias habilidades (métodos), 
 como la habilidadEspecial().
 */
-public abstract class Raza {
+public abstract class Especializacion {
     
     private String nombre;
     

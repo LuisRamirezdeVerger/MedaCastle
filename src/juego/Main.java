@@ -10,6 +10,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Mapa juegoMapa = new Mapa();
+		Inventario inventario = new Inventario();
 
 		while (juegoMapa.isJuegoEnCurso()) {
 			//Empieza el juego
@@ -53,7 +54,7 @@ public class Main {
 							break;
 						case 2:
 							//Mostrar inventario
-							
+							inventario.mostrarInventario();
 							break;
 						default:
 							//Mensaje de error en menú extra
