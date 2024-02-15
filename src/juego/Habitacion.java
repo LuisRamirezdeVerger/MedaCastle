@@ -9,7 +9,6 @@ public class Habitacion {
     private static Habitacion habitacionSur;
     private static Habitacion habitacionEste;
     private static Habitacion habitacionOeste;
-    //private Tuto textoIntro;
 
     public Habitacion (String nombre, String descripcion, Inventario inventario){
         this.nombre = nombre;
@@ -73,7 +72,7 @@ public class Habitacion {
     //Esto mostrará la info de la hab, podemos usarla para programar y ver resultados
     //Se está usando en el modo extra -> ¿Dónde estoy?
     public void mostrarInfoHabitacion(){
-        System.out.println("Habitación " + nombre);
+        System.out.println("Habitación " + getNombre());
 
         Inventario inventarioHabitacion = getInventario();
         List<Objeto> objetosHabitacion = inventarioHabitacion.getObjetos();
@@ -85,7 +84,7 @@ public class Habitacion {
                 System.out.println("- " + objeto.getNombre());
             }
         } else {
-            System.out.println("No hay nada que puedas recoger. ");
+            System.out.println("No hay nada que puedas recoger :( ");
         }
 
     }

@@ -8,19 +8,23 @@ public class Mapa {
     //Recuerda preguntar si tener varios privates con los mismos nombres es redundante
     private static Habitacion[][] habitaciones;
     private static Posicion posicionJugador;
-    private boolean juegoEnCurso;
 
+
+    
     public Mapa() {
-        habitaciones();
         // Establecemos posicion inicial, queremos empezar en la 1ª casilla del 3er array
         posicionJugador = new Posicion(2, 0);
+        habitaciones();
+        
+        
         //inventario = new Inventario();
-        juegoEnCurso = true;
+        isJuegoEnCurso(true);
         mostrarInfoHabitacionActual();
 
     }
 
     public static void habitaciones(){
+        posicionJugador = new Posicion(2, 0);
         habitaciones = new Habitacion[3][3];
         //Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
         //Completa las habitaciones!
@@ -166,8 +170,8 @@ public class Mapa {
 
     //Termina movimiento
 
-    public boolean isJuegoEnCurso(){
-        return juegoEnCurso;
+    public static boolean isJuegoEnCurso(boolean juegoEnCurso){
+        return juegoEnCurso = true;
     }
 
 }

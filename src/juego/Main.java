@@ -8,11 +8,13 @@ public class Main {
 	private static Habitacion[][] habitaciones;
 	private static Inventario inventario;
 	public static void main(String[] args) {
+		
 		Scanner scanner = new Scanner(System.in);
 		Mapa juegoMapa = new Mapa();
-		Inventario inventario = new Inventario();
+		inventario = new Inventario();
 
-		while (juegoMapa.isJuegoEnCurso()) {
+		while (Mapa.isJuegoEnCurso(true)) {
+			posicionJugador = new Posicion(2, 0);
 			//Empieza el juego
 			//Tuto.textoIntroTuto(); ...
 
@@ -41,6 +43,9 @@ public class Main {
 					//Línea 36 debe borrarse, solo para testear
 					juegoMapa.mostrarInfoHabitacionActual();
 					break;
+				case 4:
+					//Sistema de combate
+					break;
 				case 5:
 					//Menú extra
 					System.out.println("---- Menú Extra ----\n");
@@ -62,6 +67,9 @@ public class Main {
 					}
 					
 				break;
+				case 6:
+					Mapa.isJuegoEnCurso(false);
+					break;
 			
 				default:
 					//Mensaje de error en menú
