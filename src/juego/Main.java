@@ -65,8 +65,7 @@ public class Main {
 							//Mensaje de error en menú extra
 							break;
 					}
-					
-				break;
+					break;
 				case 6:
 					Mapa.isJuegoEnCurso(false);
 					break;

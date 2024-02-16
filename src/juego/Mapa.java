@@ -27,7 +27,7 @@ public class Mapa {
         posicionJugador = new Posicion(2, 0);
         habitaciones = new Habitacion[3][3];
         //Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
-        //Completa las habitaciones!
+        
      
         habitaciones[0][0] = new Habitacion("Aseos", "Descripción Aseos", new Inventario());
         habitaciones[0][0].setHabitacionEste(habitaciones[0][1]);
@@ -41,7 +41,7 @@ public class Mapa {
         habitaciones[0][2] = new Habitacion("Sala de torturas", "Descripción de la Sala de torturas", new Inventario());
         habitaciones[0][2].setHabitacionOeste(habitaciones[0][1]);
 
-        habitaciones[1][0] = new Habitacion("Dormitorio", "Descripción del dormitorio", new Inventario());
+        habitaciones[1][0] = new Habitacion("Dormitorio", "Descripción del dormitorio", creaInventarioDormitorio());
         habitaciones[1][0].setHabitacionNorte(habitaciones[0][0]);
         habitaciones[1][0].setHabitacionEste(habitaciones[1][1]);
 
@@ -51,7 +51,7 @@ public class Mapa {
         habitaciones[1][1].setHabitacionEste(habitaciones[1][2]);
         habitaciones[1][1].setHabitacionOeste(habitaciones[1][0]);
 
-        habitaciones[1][2] = new Habitacion("Patio de Armas", "Descripcion Patio de Armas", new Inventario());
+        habitaciones[1][2] = new Habitacion("Patio de Armas", "Descripcion Patio de Armas", creaInventarioPatioArmas());
         habitaciones[1][2].setHabitacionSur(habitaciones[2][2]);
         habitaciones[1][2].setHabitacionOeste(habitaciones[1][1]);
         
@@ -68,6 +68,7 @@ public class Mapa {
     }
 
     //Creamos los inventarios de cada habitación
+    //Entrada
     private static Inventario creaInventarioEntrada(){
         Inventario inventarioEntrada = new Inventario();
         inventarioEntrada.recogerObjeto(new Objeto("Llave"));
@@ -75,6 +76,7 @@ public class Mapa {
         return inventarioEntrada;
     }
 
+    //Sala Secreta
     private static Inventario creaInventarioSalaSecreta(){
         Inventario inventarioSalaSecreta = new Inventario();
         inventarioSalaSecreta.recogerObjeto(new Objeto("Piedra de *nombreInventado*"));//Esta piedra daría +1 al "daño"
@@ -82,10 +84,26 @@ public class Mapa {
 
     }
 
+    //Sala Central
     private static Inventario creaInventarioSalaCentral(){
         Inventario inventarioSalaCentral = new Inventario();
         inventarioSalaCentral.recogerObjeto(new Objeto("Gafas Espectrales"));
         return inventarioSalaCentral;
+    }
+
+    //Dormitorio
+    private static Inventario creaInventarioDormitorio(){
+        Inventario inventarioDormitorio = new Inventario();
+        inventarioDormitorio.recogerObjeto(new Objeto("Mochila"));
+        return inventarioDormitorio;
+    }
+
+    //Patio de Armas
+    private static Inventario creaInventarioPatioArmas(){
+        Inventario inventarioPatioArmas = new Inventario();
+        inventarioPatioArmas.recogerObjeto(new Objeto("Pistola"));
+        return  inventarioPatioArmas;
+
     }
 
 
