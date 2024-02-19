@@ -12,9 +12,10 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		Mapa juegoMapa = new Mapa();
 		inventario = new Inventario();
+		posicionJugador = new Posicion(2, 0);
 
 		while (Mapa.isJuegoEnCurso(true)) {
-			posicionJugador = new Posicion(2, 0);
+			
 			//Empieza el juego
 			//Tuto.textoIntroTuto(); ...
 

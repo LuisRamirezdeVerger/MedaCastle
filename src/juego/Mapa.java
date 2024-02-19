@@ -41,70 +41,33 @@ public class Mapa {
         habitaciones[0][2] = new Habitacion("Sala de torturas", "Descripción de la Sala de torturas", new Inventario());
         habitaciones[0][2].setHabitacionOeste(habitaciones[0][1]);
 
-        habitaciones[1][0] = new Habitacion("Dormitorio", "Descripción del dormitorio", creaInventarioDormitorio());
+        habitaciones[1][0] = new Habitacion("Dormitorio", "Descripción del dormitorio", Inventario.creaInventarioDormitorio());
         habitaciones[1][0].setHabitacionNorte(habitaciones[0][0]);
         habitaciones[1][0].setHabitacionEste(habitaciones[1][1]);
 
-        habitaciones[1][1] = new Habitacion("Sala Central", "Descripción de la sala central", creaInventarioSalaCentral());
+        habitaciones[1][1] = new Habitacion("Sala Central", "Descripción de la sala central", Inventario.creaInventarioSalaCentral());
         habitaciones[1][1].setHabitacionNorte(habitaciones[0][1]);
         habitaciones[1][1].setHabitacionSur(habitaciones[2][1]);
         habitaciones[1][1].setHabitacionEste(habitaciones[1][2]);
         habitaciones[1][1].setHabitacionOeste(habitaciones[1][0]);
 
-        habitaciones[1][2] = new Habitacion("Patio de Armas", "Descripcion Patio de Armas", creaInventarioPatioArmas());
+        habitaciones[1][2] = new Habitacion("Patio de Armas", "Descripcion Patio de Armas", Inventario.creaInventarioPatioArmas());
         habitaciones[1][2].setHabitacionSur(habitaciones[2][2]);
         habitaciones[1][2].setHabitacionOeste(habitaciones[1][1]);
         
-        habitaciones[2][0] = new Habitacion("Entrada", "Punto de inicio", creaInventarioEntrada()); 
+        habitaciones[2][0] = new Habitacion("Entrada", "Punto de inicio", Inventario.creaInventarioEntrada()); 
         habitaciones[2][0].setHabitacionEste(habitaciones[2][1]);
 
-        habitaciones[2][1] = new Habitacion("Pasillo movedizo", "Las paredes se mueven. ", null); //Si lo ponemos así, en esta habitación no se lootea nada
+        habitaciones[2][1] = new Habitacion("Pasillo movedizo", "Las paredes se mueven. ", null); //Si lo dejamos así, en esta habitación no se lootea nada
         habitaciones[2][1].setHabitacionNorte(habitaciones[1][1]);
         habitaciones[2][1].setHabitacionOeste(habitaciones[2][0]);
 
-        habitaciones[2][2] = new Habitacion("Sala Secreta", "Descripción Sala Secreta. ", creaInventarioSalaSecreta());
+        habitaciones[2][2] = new Habitacion("Sala Secreta", "Descripción Sala Secreta. ", Inventario.creaInventarioSalaSecreta());
         habitaciones[2][2].setHabitacionNorte(habitaciones[1][2]);
 
     }
 
-    //Creamos los inventarios de cada habitación
-    //Entrada
-    private static Inventario creaInventarioEntrada(){
-        Inventario inventarioEntrada = new Inventario();
-        inventarioEntrada.recogerObjeto(new Objeto("Llave"));
-        inventarioEntrada.recogerObjeto(new Objeto("Espada"));
-        return inventarioEntrada;
-    }
-
-    //Sala Secreta
-    private static Inventario creaInventarioSalaSecreta(){
-        Inventario inventarioSalaSecreta = new Inventario();
-        inventarioSalaSecreta.recogerObjeto(new Objeto("Piedra de *nombreInventado*"));//Esta piedra daría +1 al "daño"
-        return inventarioSalaSecreta;
-
-    }
-
-    //Sala Central
-    private static Inventario creaInventarioSalaCentral(){
-        Inventario inventarioSalaCentral = new Inventario();
-        inventarioSalaCentral.recogerObjeto(new Objeto("Gafas Espectrales"));
-        return inventarioSalaCentral;
-    }
-
-    //Dormitorio
-    private static Inventario creaInventarioDormitorio(){
-        Inventario inventarioDormitorio = new Inventario();
-        inventarioDormitorio.recogerObjeto(new Objeto("Mochila"));
-        return inventarioDormitorio;
-    }
-
-    //Patio de Armas
-    private static Inventario creaInventarioPatioArmas(){
-        Inventario inventarioPatioArmas = new Inventario();
-        inventarioPatioArmas.recogerObjeto(new Objeto("Pistola"));
-        return  inventarioPatioArmas;
-
-    }
+    
 
 
     //Terminan los inventarios (Plantea llevarlos a otro archivo para una mayor legibilidad de código)
