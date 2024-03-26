@@ -9,16 +9,22 @@ public class Main {
 	private static Inventario inventario;
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+		posicionJugador = new Posicion(2, 0);
 		Mapa juegoMapa = new Mapa();
-		Inventario inventario = new Inventario();
+		
+		
+		
 
 		while (juegoMapa.isJuegoEnCurso()) {
+			Inventario inventario = new Inventario();
 			//Empieza el juego
-			//Tuto.textoIntroTuto(); ...
-
+			//Tuto.textoIntroTuto();
+			System.out.println("Introduce tu nombre: ");
 			//Es un simple ejemplo, Nombre será un scanner y se cambiará con P1.setNombre();, lo mismo para la raza, pero en este caso, crearemos un Switch
 			Jugador p1 = new Jugador(null, 0, 0, 0, 0, 20, null);
-
+			p1.setNombre(scanner.nextLine()); 
+			System.out.println("Tu nombre es: " + p1.getNombre());
+			posicionJugador = new Posicion(2, 0);
 			//Bienvenida de juego aquí. Introducir en el package "habitaciones"
 			mostrarMenu();
 

@@ -82,6 +82,10 @@ public class Jugador {
     }
 
     public void repartirPuntos() {
+        if (getPuntosRestantes() <= 0) {
+            System.out.println("Ahora mismo no tienes puntos para repartir. ");
+
+        } else {
 
         System.out.println("Tienes " + getPuntosRestantes() + ". ");
 
@@ -89,7 +93,7 @@ public class Jugador {
         System.out.println("Fuerza: " + getFuerza());
         System.out.println("Agilidad: " + getAgilidad());
         System.out.println("Intelecto: " + getIntelecto());
-        System.out.println("Sabiduría: " + getSabiduria());
+        System.out.println("Sabiduría: " + getSabiduria() + "\n");
 
         System.out.println("Elige una estadística: \n");
         System.out.println("1.- Fuerza ");
@@ -98,7 +102,7 @@ public class Jugador {
         System.out.println("4.- Sabiduría ");
         System.out.println("5.- Salir ");
 
-        // Ejemplo de sumar las estadísticas
+        // Explicación para la suma de estadísticas
         // setFuerza(getFuerza() + sc.nextInt() );
         // Indica que la nueva fuerza será la que ya tiene + la que elija
 
@@ -106,6 +110,7 @@ public class Jugador {
 
             while (getPuntosRestantes() > 0) {
 
+                
                 switch (sc.nextInt()) {
 
                     case 1:
@@ -144,8 +149,9 @@ public class Jugador {
 
         // }
 
-        // Sistema repartir puntos
+        // Sistema repartir puntos acaba
         sc.close();
+    }
     }
 
     public void comprobarPuntos() {

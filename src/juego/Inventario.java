@@ -2,7 +2,7 @@ package juego;
 import java.util.*;
 
 public class Inventario {
-    private List<Objeto> objetos;
+    private ArrayList<Objeto> objetos;
 
     public Inventario(){
         this.objetos = new ArrayList<>();
@@ -14,7 +14,7 @@ public class Inventario {
     }
 
     public void mostrarInventario(){
-        if (getObjetos().isEmpty()){ // Si el inventario no funciona, invertir aquí con "!"
+        if (getObjetos().isEmpty()){
             System.out.println("No tienes nada en el inventario, aún... ");
         } else {
             System.out.println("Inventario: \n");
