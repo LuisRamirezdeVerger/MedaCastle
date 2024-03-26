@@ -145,7 +145,7 @@ public class Jugador {
 
         } catch (Exception e) {
             System.out.println("Error, valor no válido. ");
-        } // Añadir más catch (Exception x){
+        } // Añadir más específicos catch (Exception x){
 
         // }
 

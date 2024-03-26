@@ -8,23 +8,20 @@ public class Main {
 	private static Habitacion[][] habitaciones;
 	private static Inventario inventario;
 	public static void main(String[] args) {
+		
 		Scanner scanner = new Scanner(System.in);
-		posicionJugador = new Posicion(2, 0);
 		Mapa juegoMapa = new Mapa();
-		
-		
-		
+		inventario = new Inventario();
+		posicionJugador = new Posicion(2, 0);
 
-		while (juegoMapa.isJuegoEnCurso()) {
-			Inventario inventario = new Inventario();
+		while (Mapa.isJuegoEnCurso(true)) {
+			
 			//Empieza el juego
-			//Tuto.textoIntroTuto();
-			System.out.println("Introduce tu nombre: ");
+			//Tuto.textoIntroTuto(); ...
+
 			//Es un simple ejemplo, Nombre será un scanner y se cambiará con P1.setNombre();, lo mismo para la raza, pero en este caso, crearemos un Switch
 			Jugador p1 = new Jugador(null, 0, 0, 0, 0, 20, null);
-			p1.setNombre(scanner.nextLine()); 
-			System.out.println("Tu nombre es: " + p1.getNombre());
-			posicionJugador = new Posicion(2, 0);
+
 			//Bienvenida de juego aquí. Introducir en el package "habitaciones"
 			mostrarMenu();
 
@@ -47,6 +44,9 @@ public class Main {
 					//Línea 36 debe borrarse, solo para testear
 					juegoMapa.mostrarInfoHabitacionActual();
 					break;
+				case 4:
+					//Sistema de combate
+					break;
 				case 5:
 					//Menú extra
 					System.out.println("---- Menú Extra ----\n");
@@ -66,8 +66,10 @@ public class Main {
 							//Mensaje de error en menú extra
 							break;
 					}
-					
-				break;
+					break;
+				case 6:
+					Mapa.isJuegoEnCurso(false);
+					break;
 			
 				default:
 					//Mensaje de error en menú
