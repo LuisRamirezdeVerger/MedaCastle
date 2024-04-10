@@ -24,7 +24,7 @@ public class Mapa {
     }
 
     public static void habitaciones(){
-        posicionJugador = new Posicion(2, 0);
+        //posicionJugador = new Posicion(2, 0);
         habitaciones = new Habitacion[3][3];
         //Habitacion habitacionActual = habitaciones[posicionJugador.getX()][posicionJugador.getY()];
         

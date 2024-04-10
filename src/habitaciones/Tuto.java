@@ -19,7 +19,7 @@ public class Tuto {
         Temp.Temporizador(2500);
         System.out.print("Presiona Enter para continuar...");
         sc.nextLine();  //Creamos una pausa para que el jugador interactúe
-        Temp.LimpiarPantalla(); //Aquí limpiamos la pantalla para no sobrecargar
+        Temp.LimpiarPantalla(); //Aquí limpiamos la pantalla para no sobrecargar la pantalla
         System.out.println("En serio...");
         Temp.Temporizador(3100);
         Temp.LimpiarPantalla();

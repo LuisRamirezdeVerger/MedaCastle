@@ -20,11 +20,13 @@ public class Main {
 			//Tuto.textoIntroTuto(); ...
 
 			//Es un simple ejemplo, Nombre será un scanner y se cambiará con P1.setNombre();, lo mismo para la raza, pero en este caso, crearemos un Switch
+			//Mejor sería crear una interfaz "iCreaPersonaje(por ejemplo) y darle los métodos buscarPistas(), recogerObjeto()..."
 			Jugador p1 = new Jugador(null, 0, 0, 0, 0, 20, null);
 
 			//Bienvenida de juego aquí. Introducir en el package "habitaciones"
 			mostrarMenu();
 
+			//Crear bloque try/catch para manejar los errores de eleccionJugador
 			// Input del jugador
 			int eleccionJugador = opcionUsuario(scanner);
 
@@ -41,7 +43,7 @@ public class Main {
 					System.out.println("¿En que dirección quieres moverte? ");
 					String direccion = scanner.next().toLowerCase();
 					Mapa.moverse(direccion);
-					//Línea 36 debe borrarse, solo para testear
+					//Línea siguiente debe borrarse, solo para testear
 					juegoMapa.mostrarInfoHabitacionActual();
 					break;
 				case 4:
