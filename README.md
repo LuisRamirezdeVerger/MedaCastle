@@ -1,2 +1,2 @@
 ﻿# MedaCastle
-A game created with knowledge from Medac Sevilla
+A game created with knowledge adquired from Medac Sevilla
